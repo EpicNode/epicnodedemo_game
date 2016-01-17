@@ -1,0 +1,23 @@
+# Blender MTL File: 'None'
+# Material Count: 2
+
+newmtl None.001
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.512000 0.512000 0.512000
+Ks 0.800000 0.800000 0.800000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /home/cg72/.minetest/games/epicnode_game/mods/game/textures/game_diamondaxe.png
+map_d /home/cg72/.minetest/games/epicnode_game/mods/game/textures/game_diamondaxe.png
+
+newmtl None_NONE.001
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.512000 0.512000 0.512000
+Ks 0.800000 0.800000 0.800000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /home/cg72/.minetest/games/epicnode_game/mods/game/textures/game_diamondaxe.png

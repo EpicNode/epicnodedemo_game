@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------------------
+------------------------------- EpicNode Game ver: 0.1 :D ----------------------------------
+--------------------------------------------------------------------------------------------
+--Mod by Pinkysnowman                                                                     --
+--©2015 GNU LGPL v2.1                                                                     --
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+print("\n\n"..
+"================================================================================\n"..
+"================================================================================\n"..
+"==                                Epic Node                                   ==\n"..
+"==                             "..game.ver.."                    \t      ==\n"..
+"==                         ©2015-2016 Pinkysnowman                            ==\n"..
+"================================================================================\n"..
+"================================================================================\n\n"..
+"..-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo.\n"..
+"~MMMM8=:~~=~~~~~~~~~:::::::::::::::::::::::::::::::::::::::::::::::::::=7NMMMMMv\n"..
+"MMMO..,,,,,,,,,,,,,,......................................................~MMMMM\n"..
+"MMM,:7$$$$$$$$$$$$$$I:,.......................................:=?????+.....8MMMM\n"..
+"MMD,+DDDDDDDDDDDDDDD8~,....................................$+?777Z+~:~.....=MMMM\n"..
+"MMD:?88DNNNNNNNNNNNND~,....................................?77Z+...........,MMMM\n"..
+"MMD:?8DMM=~~~~~~~~~~:,.................,,:,...............?77Z88...........,MMMM\n"..
+"MM8:?8DMN:............................:ZDDDI.............=77?..+8$.........,MMMM\n"..
+"MM8:?DDMN~...........................,=8NDN$~............?77.....8O,.......,MMMM\n"..
+"MM8:?DDMN:............................=8NNM$:............I7?..... +8O......,MMMM\n"..
+"MM8,?DDMN~.............,::::,,,.......,`````......,,,,....7+........78? ...,MMMM\n"..
+"MM8,?DDMM?++++++=:,..,:=?II????++~....,?$$$=...~7ZDDDDDD=::...........D8,...MMMM\n"..
+"MM8,?88NNNNNNNNNMO~,.,~DD8DDDDDDN8Z:..:8NNMI,,?OD88DDD88DD+,...........I8O..MMMM\n"..
+"MM8,?88DDDDDDDDDNZ~,.,=DD8DNNNDD8DND:.~8DDN7:=8D8DMMMMMDDDM+,............*..MMMM\n"..
+"MM8,?DDNM++++++?+=,...~DDDMI==?MNDDN+.:8DDN7~IN8DM8~:=?MNNM+,...............MMMM\n"..
+"MM8,?DDMM~............~DDDM+,.,=ND8DZ,:8DDN7~7NDDN~...,+++=:................MMMM\n"..
+"MM8,?DDMN~............~DDDM?,..:ZN8DD::8DDN7~7NDDN:....,:::,................MMMM\n"..
+"MM8,?DDNN~............~DDDM?, .:?NDDN::8DDN7=7NDDM,...,~==~:................MMMM\n"..
+"MM8,?DDMN~............~DDDM?, .:$D8DN::8DDN7~7N8DM,..,~NMNM?,...............MMMM\n"..
+"MM8,?DDNM=:,,,,,,,,,..~DDDM?:,:ODDDNN,:8DDN7~7N8DN7==+$NDDN?................MMMM\n"..
+"MMO,?D8NMMNNDDDDDDDD8~~DDDNMNNNDDDDMZ,:8DDN7:IMD8DDDDDD8DNN~................MMMM\n"..
+"MM8:+D88DDDDDDDDDDDND~=DDDNNDDDDDNM7,.:8NNM7,:?NNDDDDDDNMDZ.................MMMM\n"..
+"MM8,=MNNNNNNNNNNNNNMD~=DDDNMMMMD8?:...,O888=...:?MNMMMM+=...................MMMM\n"..
+"MM8,,:~~:,,,,,,,,,::,,~DDDN?:,,,,.....,::,,.................................MMMM\n"..
+"MMO.:+?+=,............~DDDN?, ..........................,,..................MMMM\n"..
+"MM8.+DDDN~............~DDDN?, ........................:===~,................MMMM\n"..
+"MMO,+D88DM,...........~DDDN?, ........................+MNNM=................NMMM\n"..
+"MM8,+D888DM:..........~DDDN?, ...................... ,+NDDM=................NMMM\n"..
+"MMO,+D8DD8NN~.........~DDDN?, ........................=NDDM~................NMMM\n"..
+"MMO,+D8DNDDNM=........~DDDN?, ........................=NDDM~................NMMM\n"..
+"MMO,+D8DNN8DNN~.......~DDDN?,.........................=NDDN~................NMMM\n"..
+"MMO,+D8DNDNDDND:......~DDDN?, ........................=NDDN~................NMMM\n"..
+"MMZ,+D8ND?ND8DNO:.....:DDDN?, ........................=NDDN~................NMMM\n"..
+"MMZ,+D8NN~~ND8DNI,....~DDDN?, .......................,=NDDN~......,,,,......NMMM\n"..
+"MMZ,+D8DN~.=NDDDM7,...~DDDN?, ..,:~~~::,........,:~===?NDDN~...:~=+???+~,...NMMM\n"..
+"MMZ,+DDDN~.,=DD8DM?,..~DDDN?,.,IZDMMMMMD=,....:$DDNDDDND8DN~.,~7MNNDDDNMNZ,.NMMM\n"..
+"MMZ,+DDDN~..,+DD8DM$,.:DDDN?,:ZNNNNDDDDNMI:..~DNDDDDDDDD8DM~.:8NDDDDDDDDDMN:NMMM\n"..
+"MMZ,+DDDN~...,?DD8DM?,:DDDN?:+NDDDNNDDD8DM8,,ZNDDDN8ONMN8DM~,ZNDDNN8+$ND8DM=NMMM\n"..
+"MMZ,+DDDN~....,$ND8DMI~DDDN?~8D8DMI..=IDDD8::OD8DMI..,=NDDM~,ZD8DNI,.,+D8DN+NMMM\n"..
+"MMZ,+DDDN~.....:7DDDNN7DDDN?~ODDN$:..,INDDO~:ODDNO.. ,=NDDM~:ZD8NNODMNND8DN=NMMM\n"..
+"MM$,+DDDN~......:$DDDNMNDDN?~ODDN7,..:ONDD8::OD8NO.. ,+NDDM~:ZD8DNDD8DDDDNN~NMMM\n"..
+"MM$,+NDDN~.......:ODDDNNDDN?=ODDM7...:ONDDZ::OD8NO.. ,+NDDN=~OD8DNNNNDO$7I+,NMMM\n"..
+"MMZ,+NDDN~........:$NDDDDDN?=ODDM7...:ZN8D8::ODDN8...,+NDDN=~OD8ND7+~~++?++~NMMM\n"..
+"MMZ,+NDDN~.........:8D888DN?=OD8N8$:=?DD8N8::OD8DND~?7DN8DN=:OD8DNM?7NNDNNM=NMMM\n"..
+"MM8,+NDDN~..........:8D8O8N?~ON88DNNDD88DN$,,OMD8DDDDDDD8DN=:ZMD8DDDDDDDNMO~DMMM\n"..
+"MMMI+NDNN:...........~DD88N?:~INDDDDDDNMNO~..:?MNDDDDNNNDDN=,.:NNNDDDDNN8=:.NMMM\n"..
+"MMMMZ7777,............~8888=,.,~O888DD7+~,....,:I$$ZZZ$Z$$7:...,~+???+~,...DMMMM\n"..
+"MMMMMMI,,..............,:::......,,,,,............,,,,,,,,,.......,,...,=OMMMMMM\n"..
+"7MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMN:\n"..
+"..INMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8= .\n"..
+".. .+DMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMD7, ...\n\n"..
+"================================================================================\n"..
+"================================================================================\n\n")
