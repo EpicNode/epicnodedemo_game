@@ -53,7 +53,7 @@ end
 
 game.register_race("human", {
 	mesh = "character_human.b3d",
-	texture = {"character.png"},
+	texture = {"character.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.0, jump=1.0, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -62,7 +62,7 @@ game.register_race("human", {
 
 game.register_race("humanf", {
 	mesh = "characterf.b3d",
-	texture = {"character_f.png"},
+	texture = {"characterhuman_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.1, jump=1.1, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -71,16 +71,24 @@ game.register_race("humanf", {
 
 game.register_race("admin", {
 	mesh = "character_admin.b3d",
-	texture = {"character.png", "character_wings.png"},
+	texture = {"character.png", "character_wings.png"},     --each special independent skin for admins
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.2, jump=1.5, gravity=1.0},
 	armor_groups = {fleshy=0},
 }, true)
 
+game.register_race("adminf", {
+	mesh = "adminf.b3d",
+	texture = {"character_f.png", "character_wings.png"},     --each special independent skin for admins
+	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
+	physics = {speed=1.2, jump=1.5, gravity=1.0},
+	armor_groups = {fleshy=0},
+	size = {x=0.8, y = 1.0, z = 0.8},
+})
 
 game.register_race("taurin", {
 	mesh = "characteroxen.b3d",
-	texture = {"oxen_skin.png^[colorize:#804000:200^oxen_overlay.png","default_obsidian.png"},
+	texture = {"oxen_skin.png^[colorize:#804000:200^oxen_overlay.png","default_obsidian.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.9,0.3},
 	physics = {speed=1, jump=1, gravity=1.0},
 	armor_groups = {fleshy=90},
@@ -88,24 +96,15 @@ game.register_race("taurin", {
 
 game.register_race("taurinf", {
 	mesh = "characteroxenf.b3d",
-	texture = {"oxen_skin.png^[colorize:#804000:100^oxen_overlay.png","default_cobble.png"},
+	texture = {"oxen_skin.png^[colorize:#804000:100^oxen_overlay.png","default_cobble.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.9,0.3},
 	physics = {speed=1, jump=1, gravity=1.0},
 	armor_groups = {fleshy=90},
 })
 
-game.register_race("adminf", {
-	mesh = "adminf.b3d",
-	texture = {"character_f.png", "character_wings.png"},
-	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
-	physics = {speed=1.2, jump=1.5, gravity=1.0},
-	armor_groups = {fleshy=0},
-	size = {x=0.8, y = 1.0, z = 0.8},
-})
-
 game.register_race("elf", {
 	mesh = "elf.b3d",
-	texture = {"character.png"},
+	texture = {"characterelf.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.0, jump=1.0, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -114,7 +113,7 @@ game.register_race("elf", {
 
 game.register_race("elff", {
 	mesh = "elff.b3d",
-	texture = {"character_f.png"},
+	texture = {"characterelf_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.1, jump=1.1, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -123,7 +122,7 @@ game.register_race("elff", {
 
 game.register_race("orc", {
 	mesh = "characterorc.b3d",
-	texture = {"character_orc.png"},
+	texture = {"character_orc.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.0, jump=1.0, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -132,7 +131,7 @@ game.register_race("orc", {
 
 game.register_race("orcf", {
 	mesh = "characterorcf.b3d",
-	texture = {"character_orcf.png"},
+	texture = {"character_orcf.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.1, jump=1.1, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -150,7 +149,7 @@ game.register_race("nymph", {
 
 game.register_race("nymphf", {
 	mesh = "nymphf.b3d",
-	texture = {"character_f.png"},
+	texture = {"characternymph_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.2, jump=1.3, gravity=1.0},
 	armor_groups = {fleshy=105},
@@ -168,7 +167,7 @@ game.register_race("symbian", {
 
 game.register_race("symbianf", {
 	mesh = "charactersymbianf.b3d",
-	texture = {"character_f.png"},
+	texture = {"charactersymbian_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.1, jump=1.1, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -177,7 +176,7 @@ game.register_race("symbianf", {
 
 game.register_race("dwarf", {
 	mesh = "characterdwarf.b3d",
-	texture = {"character.png"},
+	texture = {"characterdwarf.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.0, jump=1.0, gravity=1.0},
 	armor_groups = {fleshy=100},
@@ -186,7 +185,7 @@ game.register_race("dwarf", {
 
 game.register_race("dwarff", {
 	mesh = "characterdwarff.b3d",
-	texture = {"character_f.png"},
+	texture = {"characterdwarf_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.0, jump=1.0, gravity=1.0},
 	armor_groups = {fleshy=100},
