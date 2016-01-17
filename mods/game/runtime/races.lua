@@ -175,6 +175,24 @@ game.register_race("symbianf", {
 	size = {x=0.9, y = 1.0, z = 0.9},
 })
 
+game.register_race("dwarf", {
+	mesh = "characterdwarf.b3d",
+	texture = {"character.png"},
+	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
+	physics = {speed=1.0, jump=1.0, gravity=1.0},
+	armor_groups = {fleshy=100},
+	size = {x=1.0, y = 1.05, z = 1.0},
+}, true)
+
+game.register_race("dwarff", {
+	mesh = "characterdwarff.b3d",
+	texture = {"character_f.png"},
+	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
+	physics = {speed=1.0, jump=1.0, gravity=1.0},
+	armor_groups = {fleshy=100},
+	size = {x=0.8, y = 1.0, z = 0.8},
+})
+
 -- game.register_race("centuar", {
 -- 	mesh = "centuar.b3d",
 -- 	texture = {"character.png", "character.png"},
