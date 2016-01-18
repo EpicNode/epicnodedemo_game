@@ -58,7 +58,7 @@ minetest.register_chatcommand("race", {
 		if race == "" then
 			return true, "Current character race: "..game.stats.race[name]
 		end
-		if game.race_list[race] == true then
+		if not game.race_list[race] then
 			local valid = ""
 			for k,_ in pairs(game.race_list) do
 				valid = valid.." "..k
