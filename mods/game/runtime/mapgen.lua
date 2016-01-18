@@ -7,7 +7,7 @@
 --------------------------------------------------------------------------------------------
 
 minetest.setting_set("map_generation_limit", 2000)
-minetest.set_mapgen_params({mgname="v6"})
+minetest.set_mapgen_params({mgname="v6",seed="EpicNode"})
 
 --
 -- Aliases for map generator outputs
