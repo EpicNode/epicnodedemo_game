@@ -332,7 +332,7 @@ function game.add_exp(player, amount, lvl_or_xp, divider)
 	if game.stats.race[name] == "admin" then return false, "Error "..name.." is an admin!!!" end
 	if lvl_or_xp then
 		if type(lvl_or_xp) == "boolean" then
-			game.stats.exp[name] = (amount/10)
+			--game.stats.exp[name] = (amount/10)
 		elseif type(lvl_or_xp) == "number" then
 			local extra = 0
 			local pl_lvl = game.stats.lvl[name]
@@ -340,9 +340,9 @@ function game.add_exp(player, amount, lvl_or_xp, divider)
 				extra = ((lvl_or_xp - pl_lvl)+lvl_or_xp)/divider
 			end
 			game.stats.exp[name] = game.stats.exp[name] + (amount/10) + (extra/10)
-		else
-			game.stats.exp[name] = game.stats.exp[name] + (amount/10)
 		end
+	else
+		game.stats.exp[name] = game.stats.exp[name] + (amount/10)
 	end
 	game.is_next_lvl(name)
 	player:hud_change(game.exp_bar[name], "text", game.get_bar_texture(name, "exp"))

@@ -181,7 +181,7 @@ game.set_formspec = function(player, pagenum, inv_type)
 				"tooltip[trash;Empty all]",
 				"list[detached:trash;main;5.0,4;1,1;]",
 				"image_button[6,2;1,1;game_pvp_btn.png;pvp;;false;false;game_pvp_btn_pr.png]",
-				"tablecolumns[color;text]",
+				"ztablecolumns[color;text]",
 				"tableoptions[background=#00000000;highlight=#00000000;border=false]",
 				"table[7,1.9;2.5,3;info;#FF9000,Race: "..race..",#FF9000,Gender: "..gender..",#FF9000,PvP: "..pvp..",#FF9000,Hp: "..hp..
 				"/"..max_hp..",#FF9000,Lvl: "..lvl..",#FF9000,Exp: "..exp.."/"..next_exp..";]",

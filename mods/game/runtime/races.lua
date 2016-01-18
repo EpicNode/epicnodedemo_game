@@ -140,10 +140,10 @@ game.register_race("orcf", {
 
 game.register_race("nymph", {
 	mesh = "nymph.b3d",
-	texture = {"character.png"},
+	texture = {"characternymph.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.2, jump=1.3, gravity=1.0},
-	armor_groups = {fleshy=105},
+	armor_groups = {fleshy=115},
 	size = {x=1.0, y = 1.05, z = 1.0},
 }, true)
 
@@ -152,16 +152,16 @@ game.register_race("nymphf", {
 	texture = {"characternymph_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
 	physics = {speed=1.2, jump=1.3, gravity=1.0},
-	armor_groups = {fleshy=105},
+	armor_groups = {fleshy=115},
 	size = {x=0.8, y = 1.0, z = 0.8},
 })
 
 game.register_race("symbian", {
 	mesh = "charactersymbian.b3d",
-	texture = {"character.png"},
+	texture = {"charactersymbian.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
-	physics = {speed=1.0, jump=1.0, gravity=1.0},
-	armor_groups = {fleshy=100},
+	physics = {speed=1.2, jump=1.1, gravity=1.0},
+	armor_groups = {fleshy=90},
 	size = {x=1.1, y = 1.05, z = 1.1},
 }, true)
 
@@ -169,8 +169,8 @@ game.register_race("symbianf", {
 	mesh = "charactersymbianf.b3d",
 	texture = {"charactersymbian_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
-	physics = {speed=1.1, jump=1.1, gravity=1.0},
-	armor_groups = {fleshy=100},
+	physics = {speed=1.3, jump=1.2, gravity=1.0},
+	armor_groups = {fleshy=90},
 	size = {x=0.9, y = 1.0, z = 0.9},
 })
 
@@ -178,8 +178,8 @@ game.register_race("dwarf", {
 	mesh = "characterdwarf.b3d",
 	texture = {"characterdwarf.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
-	physics = {speed=1.0, jump=1.0, gravity=1.0},
-	armor_groups = {fleshy=100},
+	physics = {speed=0.9, jump=1.0, gravity=1.0},
+	armor_groups = {fleshy=110},
 	size = {x=1.0, y = 1.05, z = 1.0},
 }, true)
 
@@ -187,8 +187,8 @@ game.register_race("dwarff", {
 	mesh = "characterdwarff.b3d",
 	texture = {"characterdwarf_f.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.8,0.3},
-	physics = {speed=1.0, jump=1.0, gravity=1.0},
-	armor_groups = {fleshy=100},
+	physics = {speed=0.9, jump=1.0, gravity=1.0},
+	armor_groups = {fleshy=110},
 	size = {x=0.8, y = 1.0, z = 0.8},
 })
 

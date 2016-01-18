@@ -38,7 +38,7 @@ function game.load_old()
 	end
 end
 
-local function savehome(name,pos)
+function game.savehome(name,pos)
 	if not pos then pos = minetest.get_player_by_name(name):getpos() end
 	local output = io.open(homes_file..name..".phf", "w")
 	output:write(name.." "..pos.x.." "..pos.y.." "..pos.z)
@@ -66,7 +66,7 @@ minetest.register_chatcommand("sethome", {
 	description = "Sets your home.",
 	privs = {interact=true},
 	func = function(name)
-		savehome(name)
+		game.savehome(name)
 		return true, "Home is set!"
 	end,
 })

@@ -45,7 +45,7 @@ function game.hp_loss(pos, damage, color)
 	})
 end
 
-function game.get_time ()
+function game.get_time()
 	local t, m, h, d
 	t = 24*60*minetest.get_timeofday()
 	m = floormod(t, 60)
