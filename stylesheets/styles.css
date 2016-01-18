@@ -542,6 +542,7 @@ body {
   background: -o-linear-gradient(#2a2a29, #1c1c1c);
   background: -ms-linear-gradient(#2a2a29, #1c1c1c);
   background: linear-gradient(#2a2a29, #1c1c1c);
+  background: url(../images/game_screenshot.jpg) #353535;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -561,6 +562,10 @@ h1, h2, h3 {
 
 h1 {
   font-size: 28px;
+  color: #FF8000;
+  border: 05px ridge rgb(28, 0, 28);
+  margin: auto;
+  background-color: black;
 }
 
 h2 {
@@ -596,7 +601,6 @@ a small {
 }
 
 ul {
-  list-style-image: url("../images/bullet.png");
 }
 
 strong {
@@ -778,6 +782,11 @@ dt {
   float: right;
   margin-right: 10px;
   font-size: 11px;
+}
+
+#header nav.li minetest { 
+float: right;
+margin-left: 4px;
 }
 
 section {
