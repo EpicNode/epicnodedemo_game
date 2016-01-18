@@ -732,12 +732,12 @@ dt {
 #header nav li a {
   color: white;
   border: 1px solid #5d910b;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #93bd20), color-stop(100%, #659e10));
-  background: -webkit-linear-gradient(#93bd20, #659e10);
-  background: -moz-linear-gradient(#93bd20, #659e10);
-  background: -o-linear-gradient(#93bd20, #659e10);
-  background: -ms-linear-gradient(#93bd20, #659e10);
-  background: linear-gradient(#93bd20, #659e10);
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff8000), color-stop(100%, #bb6000));
+  background: -webkit-linear-gradient(#ff8000, #bb6000);
+  background: -moz-linear-gradient(#ff8000, #bb6000);
+  background: -o-linear-gradient(#ff8000, #bb6000);
+  background: -ms-linear-gradient(#ff8000, #bb6000);
+  background: linear-gradient(#ff8000, #bb6000);
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   -o-border-radius: 2px;
@@ -748,7 +748,7 @@ dt {
   -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
   -o-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
-  background-color: #93bd20;
+  background-color: #ff8000;
   padding: 10px 12px;
   margin-top: 6px;
   line-height: 14px;
@@ -763,7 +763,7 @@ dt {
   background: -o-linear-gradient(#749619, #527f0e);
   background: -ms-linear-gradient(#749619, #527f0e);
   background: linear-gradient(#749619, #527f0e);
-  background-color: #659e10;
+  background-color: #bb6000;
   border: 1px solid #527f0e;
   -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
   -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
