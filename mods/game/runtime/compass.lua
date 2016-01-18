@@ -6,7 +6,7 @@
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
-minetest.register_node(":game:compass", {
+minetest.register_node("game:compass", {
 	description = "Compass Stone",
 	tiles = {"game_compass_top.png","game_compass.png"},
 	groups = {snappy=3,choppy=3,oddly_breakable_by_hand=3},

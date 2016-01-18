@@ -27,7 +27,7 @@ end
 minetest.register_on_chat_message(function(name, message)
 	if not message:find("@") then return true end
 	local toname, msg = string.match(message, "^@([^ ]+) *(.*)")
-	if not toname and not msg and msg ~= "" then
+	if not toname and not msg and msg == "" then
 		return false
 	end
 	if not minetest.get_player_by_name(toname) then
@@ -35,7 +35,7 @@ minetest.register_on_chat_message(function(name, message)
 		return true
 	end
 	minetest.chat_send_player(toname, "<"..name.."> "..msg)
-	minetest.chat_send_player(name, "Message sent!")
+	minetest.chat_send_player(name, "Message sent to "..toname.."!")
 	return true
 end)
 
