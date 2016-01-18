@@ -42,12 +42,11 @@ minetest.register_chatcommand("rc", {
 
 function game.register_race(race, properties, list)
 	local race_def = game.race_properties
-	local race_list = game.race_list
 	race_def[race] = properties
-	if not list then
-		race_list[race] = true
+	if list then
+		game.race_list[race] = true
 	else
-		race_list[race] = false
+		game.race_list[race] = false
 	end
 end
 

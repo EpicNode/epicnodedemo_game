@@ -61,7 +61,9 @@ minetest.register_chatcommand("race", {
 		if not game.race_list[race] then
 			local valid = ""
 			for k,_ in pairs(game.race_list) do
-				valid = valid.." "..k
+				if game.race_list[k] then
+					valid = valid.." "..k
+				end
 			end
 			return false, "Invalid race '"..race.."', choose from:"..valid
 		end

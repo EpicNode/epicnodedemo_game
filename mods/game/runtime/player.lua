@@ -60,7 +60,7 @@ function game.update_player_visuals(player)
 	if gender == "female" then
 		race = race.."f"
 	end
-	local properties = game.race_properties[race]
+	local properties = game.race_properties[race] or game.race_properties["human"]
 	local mesh = ""
 	local texture = properties.texture
 	game.pl_texture[name] = texture
