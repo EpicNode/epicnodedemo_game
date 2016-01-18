@@ -730,7 +730,7 @@ dt {
   font-size: 14px;
 }
 #header nav li a {
-  color: white;
+  color: black;
   border: 1px solid #000000;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff8000), color-stop(100%, #bb6000));
   background: -webkit-linear-gradient(#ff8000, #bb6000);
