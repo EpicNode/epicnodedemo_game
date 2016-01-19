@@ -175,7 +175,7 @@ function game.percent(player, stat_type, value)
 	elseif stat_type == "exp" then
 		local pl_c_lvl = game.stats.lvl[name]
 		local pl_exp = game.stats.exp[name]*10
-		local next_exp = ((8*pl_c_lvl) + game.exp_diff(pl_c_lvl))*(45 + (5*pl_c_lvl))
+		local next_exp = math.floor((((8*pl_c_lvl) + game.exp_diff(pl_c_lvl))*(45 + (5*pl_c_lvl)))/100)*100
 		return ((pl_exp/next_exp)*100)
 	elseif stat_type == "hp" then
 		if game.stats.hp[name] == "dead" then
@@ -310,10 +310,10 @@ function game.add_lvl(player, lvl)
 		name = player:get_player_name()
 	end
 	if not game.stats.lvl[name] then return false, "Error "..name.." doesnt have any lvl yet!!!" end
-		lvl = game.stats.lvl[name] + lvl
-		if lvl > 60 then lvl = 60 end
-		game.stats.lvl[name] = lvl
-		game.stats.hp[name] = (game.adjust_to_lvl(20, game.stats.lvl[name],40)*(game.percent(player, "hp")/100))
+	lvl = game.stats.lvl[name] + lvl
+	if lvl > 60 then lvl = 60 end
+	game.stats.lvl[name] = lvl
+	game.stats.hp[name] = (game.adjust_to_lvl(20, game.stats.lvl[name],40)*(game.percent(player, "hp")/100))
 	return true, name.." had lvl added!"
 end
 
@@ -369,9 +369,10 @@ function game.is_next_lvl(name)
 	local next_exp = math.floor((((8*pl_c_lvl) + game.exp_diff(pl_c_lvl))*(45 + (5*pl_c_lvl)))/100)*100
 	if pl_exp >= next_exp then
 		game.stats.total_exp[name] = game.stats.total_exp[name] + (next_exp/10)
-		game.stats.exp[name] = pl_exp - next_exp
+		game.stats.exp[name] = (pl_exp - next_exp)/10
+		game.add_lvl(name, 1)
+		game.is_next_lvl(name)
 		minetest.chat_send_player(name, "You have leveled up!")
-		return game.add_lvl(name, 1)
 	end
 end
 
@@ -469,8 +470,7 @@ end
 
 minetest.register_globalstep(function(dtime)
 	game.timer = game.timer + dtime
-	game.save_timer = game.save_timer + dtime
-
+	game.save_timer = game.save_timer + dtime	
 	if game.save_timer >= 60 then
 		game.save_timer = 0
 		minetest.log(game.save_stats())

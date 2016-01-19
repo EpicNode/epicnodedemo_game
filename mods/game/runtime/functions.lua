@@ -6,6 +6,27 @@
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
+function game.effects(pos, texture, spread, amount)
+	if not pos.x or not pos.y or not pos.z or not texture then return end
+	amount = amount or 50
+	spread = spread or 0.5
+	minetest.add_particlespawner({
+		amount = amount,
+		time = 1,
+		minpos = {x = pos.x+spread, y = pos.y+spread, z = pos.z+spread},
+		maxpos = {x = pos.x-spread, y = pos.y-spread, z = pos.z-spread},
+		minvel = {x = 0, y = 1, z = 0},
+		maxvel = {x = 0,  y = 1,  z = 0},
+		minacc = {x = 0, y = 0, z = 0},
+		maxacc = {x = 0, y = 0, z = 0},
+		minexptime = 1.5,
+		maxexptime = 1.5,
+		minsize = 5,
+		maxsize = 5,
+		texture = texture,
+	})
+end
+
 function game.number_to_texturestring(num,color)
 	if not color then 
 		color = "#ffffff:255"

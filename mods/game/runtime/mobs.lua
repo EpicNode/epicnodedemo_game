@@ -128,7 +128,12 @@ set_animation = function(self, type)
 				x = self.animation.run_start,
 				y = self.animation.run_end},
 				self.animation.speed_run, 0)
-
+			self.animation.current = "run"
+		else
+			self.object:set_animation({
+				x = self.animation.walk_start,
+				y = self.animation.walk_end},
+				self.animation.speed_normal, 0)
 			self.animation.current = "run"
 		end
 
@@ -665,7 +670,7 @@ function day_docile(self)
 end
 
 -- register mob function
-function mobs:register_mob(name, def)
+function mobs.register_mob(name, def)
 
 minetest.register_entity(":"..name, {
 
@@ -673,7 +678,10 @@ minetest.register_entity(":"..name, {
 	name = name,
 	aname = def.aname or name,
 	lvl = def.lvl or 1,
+	boss = def.boss or false,
+	particles = def.particles or nil,
 	type = def.type,
+	exp = def.exp or 0,
 	attack_type = def.attack_type,
 	fly = def.fly,
 	fly_in = def.fly_in or "air",
@@ -731,6 +739,7 @@ minetest.register_entity(":"..name, {
 	env_damage_timer = 0, -- only used when state = "attack"
 	tamed = false,
 	pause_timer = 0,
+	particle_timer = 0,
 	horny = false,
 	hornytimer = 0,
 	child = false,
@@ -747,6 +756,14 @@ minetest.register_entity(":"..name, {
 
 		local pos = self.object:getpos()
 		local yaw = self.object:getyaw() or 0
+		self.particle_timer = self.particle_timer + dtime
+		if self.particle_timer > 1 then
+			if self.particles ~= nil then
+				local p_pos = {x=pos.x, y=pos.y+self.particles.y_adj,z=pos.z}
+				game.effects(p_pos, self.particles.texture, 1.5, 50)
+			end
+			self.particle_timer = 0
+		end
 
 		self.nametag = "[lvl"..self.lvl.."] "..self.aname.."\n("..self.object:get_hp().." / "..self.hp_max..")"
 		self.nametag_color = "#ffffff"
@@ -754,6 +771,7 @@ minetest.register_entity(":"..name, {
 
 		-- when lifetimer expires remove mob (except npc and tamed)
 		if self.type ~= "npc"
+		and not self.boss
 		and not self.tamed
 		and self.state ~= "attack" then
 
@@ -1427,7 +1445,7 @@ minetest.register_entity(":"..name, {
 
 					pos.y = pos.y - 1
 
-					mobs:explosion(pos, 2, 0, 1, self.sounds.explode)
+					mobs.explosion(pos, 2, 0, 1, self.sounds.explode)
 
 					self.object:remove()
 
@@ -1458,6 +1476,7 @@ minetest.register_entity(":"..name, {
 							y = 1 * self.walk_velocity,
 							z = v.z
 						})
+						set_animation(self, "walk")
 
 					elseif me_y > p_y then
 
@@ -1466,6 +1485,7 @@ minetest.register_entity(":"..name, {
 							y = -1 * self.walk_velocity,
 							z = v.z
 						})
+						set_animation(self, "walk")
 					end
 				else
 					if me_y < p_y then
@@ -1475,6 +1495,7 @@ minetest.register_entity(":"..name, {
 							y = 0.01,
 							z = v.z
 						})
+						set_animation(self, "walk")
 
 					elseif me_y > p_y then
 
@@ -1483,6 +1504,7 @@ minetest.register_entity(":"..name, {
 							y = -0.01,
 							z = v.z
 						})
+						set_animation(self, "walk")
 					end
 				end
 
@@ -1649,7 +1671,7 @@ minetest.register_entity(":"..name, {
 			return
 		end
 
-		--local ent = minetest.add_entity(self.object:getpos(), "mobs:bar")  --new bar for hp and shit
+		--local ent = minetest.add_entity(self.object:getpos(), "mobs.bar")  --new bar for hp and shit
 			--server_tools.set_pvp(plname, "disabled")
 			--if ent ~= nil then
 				--ent:set_attach(self.object, "", {x = 0, y = 9, z = 0}, {x = 0, y = 0, z = 0})
@@ -1903,13 +1925,13 @@ minetest.register_entity(":"..name, {
 	end,
 })
 
-end -- END mobs:register_mob function
+end -- END mobs.register_mob function
 
 -- global functions
 
 mobs.spawning_mobs = {}
 
-function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
+function mobs.spawn_specific(name, nodes, neighbors, min_light, max_light,
 	interval, chance, active_object_count, min_height, max_height)
 
 	mobs.spawning_mobs[name] = true
@@ -1988,9 +2010,9 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 end
 
 -- compatibility with older mob registration
-function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_object_count, max_height)
+function mobs.register_spawn(name, nodes, max_light, min_light, chance, active_object_count, max_height)
 
-	mobs:spawn_specific(name, nodes, {"air"}, min_light, max_light, 30,
+	mobs.spawn_specific(name, nodes, {"air"}, min_light, max_light, 30,
 		chance, active_object_count, -31000, max_height)
 end
 
@@ -2002,7 +2024,7 @@ local c_brick = minetest.get_content_id("game:obsidianbrick")
 local c_chest = minetest.get_content_id("game:chest_locked")
 
 -- explosion (cannot break protected or unbreakable nodes)
-function mobs:explosion(pos, radius, fire, smoke, sound)
+function mobs.explosion(pos, radius, fire, smoke, sound)
 
 	radius = radius or 0
 	fire = fire or 0
@@ -2100,7 +2122,7 @@ function mobs:explosion(pos, radius, fire, smoke, sound)
 end
 
 -- register arrow for shoot attack
-function mobs:register_arrow(name, def)
+function mobs.register_arrow(name, def)
 
 	if not name or not def then return end -- errorcheck
 
@@ -2193,7 +2215,7 @@ function mobs:register_arrow(name, def)
 end
 
 -- Spawn Egg
-function mobs:register_egg(mob, desc, background, addegg)
+function mobs.register_egg(mob, desc, background, addegg)
 
 	local invimg = background
 
@@ -2224,24 +2246,25 @@ function mobs:register_egg(mob, desc, background, addegg)
 					ent.owner = placer:get_player_name()
 					ent.tamed = true
 				end
+				if not ent.boss then
 				ent.lvl = math.random(1,60)
-				if minetest.is_singleplayer() then
-					ent.lvl = math.random(game.stats.lvl["singleplayer"], game.stats.lvl["singleplayer"]+4)
-					if ent.lvl < 1 then
-						ent.lvl = 1
-					elseif ent.lvl > 60 then
-						ent.lvl = 60
+					if minetest.is_singleplayer() then
+						ent.lvl = math.random(game.stats.lvl["singleplayer"], game.stats.lvl["singleplayer"]+4)
+						if ent.lvl < 1 then
+							ent.lvl = 1
+						elseif ent.lvl > 60 then
+							ent.lvl = 60
+						end
 					end
+					ent.hp_min = game.adjust_to_lvl(ent.hp_min, ent.lvl, ent.hp_max)
+					ent.hp_max = game.adjust_to_lvl(ent.hp_max, ent.lvl, ent.hp_max)
+					ent.damage = game.adjust_to_lvl(ent.damage, ent.lvl, ent.damage*4)
+					ent.exp = game.adjust_to_lvl(10, ent.lvl, (10+(ent.lvl/10)))
+					ent.visual_size =  {x = 1+(ent.lvl/50), y = 1+(ent.lvl/50)}
+					ent.run_velocity = ent.run_velocity+(ent.lvl/75)-0.2
+					ent.collisionbox = {-0.3*((ent.lvl/25)+1), -0.01, -0.3*((ent.lvl/25)+1), 0.3*((ent.lvl/25)+1), 0.8*((ent.lvl/25)+1), 0.3*((ent.lvl/25)+1)}
 				end
-				ent.hp_min = game.adjust_to_lvl(ent.hp_min, ent.lvl, ent.hp_max)
-				ent.hp_max = game.adjust_to_lvl(ent.hp_max, ent.lvl, ent.hp_max)
-				ent.damage = game.adjust_to_lvl(ent.damage, ent.lvl, ent.damage*4)
-				ent.exp = game.adjust_to_lvl(10, ent.lvl, (10+(ent.lvl/10)))
-				ent.visual_size =  {x = 1+(ent.lvl/50), y = 1+(ent.lvl/50)}
 				ent.object:set_hp(math.random(ent.hp_min, ent.hp_max))
-				ent.run_velocity = ent.run_velocity+(ent.lvl/75)-0.2
-				ent.collisionbox = {-0.3*((ent.lvl/25)+1), -0.01, -0.3*((ent.lvl/25)+1), 0.3*((ent.lvl/25)+1), 0.8*((ent.lvl/25)+1), 0.3*((ent.lvl/25)+1)}
-
 				-- if not in creative then take item
 				if not minetest.setting_getbool("creative_mode") then
 					itemstack:take_item()
@@ -2254,7 +2277,7 @@ function mobs:register_egg(mob, desc, background, addegg)
 end
 
 -- capture critter (thanks to blert2112 for idea)
-function mobs:capture_mob(self, clicker, chance_hand, chance_net, chance_lasso, force_take, replacewith)
+function mobs.capture_mob(self, clicker, chance_hand, chance_net, chance_lasso, force_take, replacewith)
 
 	if not self.child
 	and clicker:is_player()
@@ -2297,7 +2320,7 @@ function mobs:capture_mob(self, clicker, chance_hand, chance_net, chance_lasso, 
 			if tool:is_empty() then
 				chance = chance_hand
 
-			elseif tool:get_name() == "mobs:net" then
+			elseif tool:get_name() == "mobs.net" then
 
 				chance = chance_net
 
@@ -2305,7 +2328,7 @@ function mobs:capture_mob(self, clicker, chance_hand, chance_net, chance_lasso, 
 
 				clicker:set_wielded_item(tool)
 
-			elseif tool:get_name() == "mobs:magic_lasso" then
+			elseif tool:get_name() == "mobs.magic_lasso" then
 
 				chance = chance_lasso
 
@@ -2334,7 +2357,7 @@ local mob_obj = {}
 local mob_sta = {}
 
 -- feeding, taming and breeding (thanks blert2112)
-function mobs:feed_tame(self, clicker, feed_count, breed, tame)
+function mobs.feed_tame(self, clicker, feed_count, breed, tame)
 
 	if not self.follow then
 		return false
@@ -2418,7 +2441,7 @@ function mobs:feed_tame(self, clicker, feed_count, breed, tame)
 	local item = clicker:get_wielded_item()
 
 	-- if mob has been tamed you can name it with a nametag
-	if item:get_name() == "mobs:nametag"
+	if item:get_name() == "mobs.nametag"
 	and clicker:get_player_name() == self.owner then
 
 		local name = clicker:get_player_name()
@@ -2483,7 +2506,7 @@ end)
 
 -- Warthog by KrupnoPavel and Pinkysnow
 
-mobs:register_mob("game:wartus", {
+mobs.register_mob("game:wartus", {
 	type = "monster",
 	aname = "Wartus beast",
 	passive = false,
@@ -2529,14 +2552,14 @@ mobs:register_mob("game:wartus", {
 		punch_end = 100,
 	},
 	on_rightclick = function(self, clicker)
-		mobs:feed_tame(self, clicker, 8, true, true)
-		mobs:capture_mob(self, clicker, 0, 5, 50, false, nil)
+		mobs.feed_tame(self, clicker, 8, true, true)
+		mobs.capture_mob(self, clicker, 0, 5, 50, false, nil)
 	end,
 })
 
-mobs:register_spawn("game:wartus", {"ethereal:mushroom_dirt", "default:dirt_with_dry_grass"}, 20, 10, 15000, 2, 31000)
+mobs.register_spawn("game:wartus", {"ethereal:mushroom_dirt", "default:dirt_with_dry_grass"}, 20, 10, 15000, 2, 31000)
 
-mobs:register_egg("game:wartus", "Wartus", "default_snow.png", 1)
+mobs.register_egg("game:wartus", "Wartus", "default_snow.png", 1)
 
 -- raw porkchop
 minetest.register_craftitem("game:pork_raw", {
