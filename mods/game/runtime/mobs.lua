@@ -760,9 +760,16 @@ minetest.register_entity(":"..name, {
 		if self.particle_timer > 1 then
 			if self.particles ~= nil then
 				local p_pos = {x=pos.x, y=pos.y+self.particles.y_adj,z=pos.z}
-				game.effects(p_pos, self.particles.texture, 1.5, 50)
+				game.effects(p_pos, self.particles.texture, 1.5, "y", 1.5, 50)
 			end
 			self.particle_timer = 0
+		end
+		if self.boss then
+			local new_hp = self.object:get_hp()+(self.hp_max/3000)
+			if new_hp > self.hp_max then
+				new_hp = self.hp_max
+			end
+			self.object:set_hp(new_hp)
 		end
 
 		self.nametag = "[lvl"..self.lvl.."] "..self.aname.."\n("..self.object:get_hp().." / "..self.hp_max..")"
@@ -1587,6 +1594,10 @@ minetest.register_entity(":"..name, {
 							full_punch_interval = 1.0,
 							damage_groups = {fleshy = self.damage}
 						}, nil)
+						if self.particles.on_hit then
+							local pl_pos = self.attack:getpos()
+							game.effects({x=pl_pos.x, y=pl_pos.y+0.5,z=pl_pos.z}, self.particles.texture, 0.3, "none", 0.75, 8)
+						end
 					end
 				end
 			end

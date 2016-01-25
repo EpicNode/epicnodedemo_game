@@ -834,3 +834,4 @@ game.register("node", "walk_light", {
 	light_source = 13,
 	pointable = false,
 })
+

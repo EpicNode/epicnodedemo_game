@@ -15,6 +15,7 @@ mobs.register_mob("game:ignitus", {
 	passive = false,
 	attack_type = "dogfight",
 	group_attack = false,
+	knock_back = 0,
 	reach = 8,
 	damage = 0,
 	hp_min = 60,
@@ -27,7 +28,7 @@ mobs.register_mob("game:ignitus", {
 	textures = {
 		{"game_fireaxe.png", "ignitus.png", "ignitus_fire.png"},
 	},
-	particles = {y_adj=2.5,texture="ignitus_fire.png",},
+	particles = {y_adj=2.5,texture="ignitus_fire.png", on_hit=true},
 	makes_footstep_sound = false,
 	sounds = {
 		--random = "mobs_pig",

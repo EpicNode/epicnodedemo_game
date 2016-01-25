@@ -95,7 +95,7 @@ game.register_race("taurin", {
 
 game.register_race("taurinf", {
 	mesh = "characteroxenf.b3d",
-	texture = {"oxen_skin.png^[colorize:#804000:100^oxen_overlay.png","default_cobble.png"},             --done
+	texture = {"oxen_skin.png^[colorize:#804000:100^oxen_overlay.png","default_cobble.png", "taurin_armor1.png"},             --done
 	collisionbox = {-0.3,-1.0,-0.3, 0.3,0.9,0.3},
 	physics = {speed=1, jump=1, gravity=1.0},
 	armor_groups = {fleshy=90},

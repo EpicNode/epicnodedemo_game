@@ -6,21 +6,26 @@
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
-function game.effects(pos, texture, spread, amount)
+function game.effects(pos, texture, spread, dir, time, amount)
 	if not pos.x or not pos.y or not pos.z or not texture then return end
 	amount = amount or 50
 	spread = spread or 0.5
+	time = time or 0.5
+	local vel = {x=0,y=0.1,z=0}
+	if dir ~= "none" then
+		vel[dir] = 1
+	end
 	minetest.add_particlespawner({
 		amount = amount,
 		time = 1,
 		minpos = {x = pos.x+spread, y = pos.y+spread, z = pos.z+spread},
 		maxpos = {x = pos.x-spread, y = pos.y-spread, z = pos.z-spread},
-		minvel = {x = 0, y = 1, z = 0},
-		maxvel = {x = 0,  y = 1,  z = 0},
-		minacc = {x = 0, y = 0, z = 0},
-		maxacc = {x = 0, y = 0, z = 0},
-		minexptime = 1.5,
-		maxexptime = 1.5,
+		minvel = vel,
+		maxvel = vel,
+		minacc = {x=0,y=0,z=0},
+		maxacc = {x=0,y=0,z=0},
+		minexptime = time,
+		maxexptime = time,
 		minsize = 5,
 		maxsize = 5,
 		texture = texture,
